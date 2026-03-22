@@ -3,7 +3,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.send(`
+  res.setHeader('Content-Type', 'text/html');
+  res.status(200).send(`
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -21,42 +22,45 @@ app.get('/', (req, res) => {
                 <h1 class="text-2xl font-bold text-blue-700">Yareema Data Hub</h1>
                 <div class="space-x-4">
                     <a href="#" class="text-gray-600 font-medium hover:text-blue-700">Login</a>
-                    <a href="#" class="bg-blue-700 text-white px-5 py-2 rounded-full font-bold hover:bg-blue-800">Sign Up</a>
+                    <a href="#" class="bg-blue-700 text-white px-5 py-2 rounded-full font-bold hover:bg-blue-800 transition">Sign Up</a>
                 </div>
             </div>
         </nav>
 
         <section class="hero-bg text-white py-20 px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Sayan Data da Airtime cikin Sauki</h2>
-            <p class="text-lg mb-8 opacity-90">Muna ba ku damar sayan Data, Airtime, da biyan Bills akan farashi mafi rahusa a Nigeria.</p>
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">Affordable Data & Airtime</h2>
+            <p class="text-lg mb-8 opacity-90 max-w-2xl mx-auto">Purchase high-speed data, airtime top-ups, and pay utility bills at the most affordable rates in Nigeria.</p>
             <div class="flex justify-center space-x-4">
-                <button class="bg-white text-blue-700 px-8 py-3 rounded-lg font-bold shadow-lg">Fara Yanzu</button>
-                <button class="border border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-700 transition">Farashinmu</button>
+                <button class="bg-white text-blue-700 px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-gray-100 transition">Get Started</button>
+                <button class="border border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-700 transition">View Pricing</button>
             </div>
         </section>
 
         <section class="container mx-auto py-16 px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border hover:shadow-md transition">
-                    <div class="text-blue-600 text-4xl mb-4">📶</div>
-                    <h3 class="text-xl font-bold mb-2">Mafi Saukin Data</h3>
-                    <p class="text-gray-600 italic text-sm">Sami MTN, GLO, Airtel, da 9mobile SME & Gifting data akan farashi mai kyau.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition">
+                    <div class="text-blue-600 text-5xl mb-4">📶</div>
+                    <h3 class="text-xl font-bold mb-2">Cheap Data</h3>
+                    <p class="text-gray-500 text-sm">Instant activation for MTN, GLO, AIRTEL, and 9MOBILE SME & Gifting data.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border hover:shadow-md transition">
-                    <div class="text-blue-600 text-4xl mb-4">💳</div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition">
+                    <div class="text-blue-600 text-5xl mb-4">💳</div>
                     <h3 class="text-xl font-bold mb-2">Airtime Top-up</h3>
-                    <p class="text-gray-600 italic text-sm">Tura katin waya nan take zuwa kowane layi ba tare da bata lokaci ba.</p>
+                    <p class="text-gray-500 text-sm">Recharge your phone instantly with our automated VTU services.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border hover:shadow-md transition">
-                    <div class="text-blue-600 text-4xl mb-4">💡</div>
-                    <h3 class="text-xl font-bold mb-2">Biyan Bills</h3>
-                    <p class="text-gray-600 italic text-sm">Biyan wutar lantarki (AEDC, JED, etc) da kudin TV kamar DSTV, GOTV & Startimes.</p>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition">
+                    <div class="text-blue-600 text-5xl mb-4">💡</div>
+                    <h3 class="text-xl font-bold mb-2">Utility Bills</h3>
+                    <p class="text-gray-500 text-sm">Pay Electricity bills and Cable TV subscriptions (DSTV, GOTV & Startimes).</p>
                 </div>
             </div>
         </section>
 
         <footer class="bg-gray-900 text-gray-400 py-10 text-center">
-            <p>&copy; 2026 Yareema Data Hub - Developed by Jawad Yakubu</p>
+            <div class="container mx-auto px-6">
+                <p class="mb-2 font-bold text-white">Yareema Data Hub</p>
+                <p class="text-sm">&copy; 2026. All Rights Reserved. Developed by Jawad Yakubu.</p>
+            </div>
         </footer>
     </body>
     </html>
@@ -64,5 +68,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('Server is running');
+  console.log('Server is running on port ' + port);
 });
