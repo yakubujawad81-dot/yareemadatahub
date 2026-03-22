@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
@@ -10,63 +9,112 @@ app.get('/', (req, res) => {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Yareema Data Hub | Welcome</title>
+        <title>Yareema Data Hub | Dashboard</title>
         <script src="https://cdn.tailwindcss.com"></script>
-        <style>
-            .hero-bg { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); }
-        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     </head>
-    <body class="bg-gray-50 font-sans">
-        <nav class="bg-white shadow-md p-4">
-            <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-2xl font-bold text-blue-700">Yareema Data Hub</h1>
-                <div class="space-x-4">
-                    <a href="#" class="text-gray-600 font-medium hover:text-blue-700">Login</a>
-                    <a href="#" class="bg-blue-700 text-white px-5 py-2 rounded-full font-bold hover:bg-blue-800 transition">Sign Up</a>
+    <body class="bg-gray-50 pb-24 font-sans">
+        <header class="bg-white p-4 flex justify-between items-center shadow-sm sticky top-0 z-50">
+            <div class="flex items-center space-x-2">
+                <div class="bg-blue-100 p-2 rounded-lg text-blue-700"><i class="fas fa-bars"></i></div>
+                <div>
+                    <p class="text-[10px] text-gray-400 font-bold uppercase">Good Morning</p>
+                    <h2 class="text-xs font-bold text-gray-800">Welcome back, Jawad</h2>
                 </div>
             </div>
+            <div class="flex space-x-4 text-gray-500">
+                <i class="far fa-bell text-lg"></i>
+                <i class="fas fa-sync-alt text-lg"></i>
+            </div>
+        </header>
+
+        <main class="p-4 max-w-md mx-auto">
+            <div class="bg-[#1e3a8a] text-white p-6 rounded-[2rem] shadow-xl mb-6 relative overflow-hidden">
+                <p class="text-xs opacity-80 mb-1">Available Balance</p>
+                <h2 class="text-4xl font-extrabold mb-5 flex items-center">₦500.00 <i class="far fa-eye-slash text-lg ml-3 opacity-40"></i></h2>
+                
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl flex justify-between items-center border border-white/10">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-white p-2 rounded-lg text-blue-900"><i class="fas fa-university text-sm"></i></div>
+                        <div>
+                            <p class="text-[9px] uppercase opacity-70 leading-none mb-1">Globus Bank <span class="bg-blue-400 text-white px-1 rounded ml-1">PRIMARY</span></p>
+                            <p class="text-sm font-bold tracking-wider">8060279448</p>
+                            <p class="text-[9px] opacity-60">YAREEMA DATA HUB LIMITED</p>
+                        </div>
+                    </div>
+                    <button class="bg-blue-600 px-3 py-1 rounded-md text-[10px] font-bold shadow-sm">Copy</button>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-bold text-gray-800 text-sm">Quick Services</h3>
+                <span class="text-blue-700 text-[10px] font-bold">View All <i class="fas fa-chevron-right ml-1"></i></span>
+            </div>
+
+            <div class="grid grid-cols-4 gap-3 mb-8">
+                <div class="text-center">
+                    <div class="bg-white aspect-square rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-blue-500 mb-1"><i class="fas fa-wifi text-lg"></i></div>
+                    <p class="text-[9px] font-bold text-gray-500">Buy Data</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white aspect-square rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-green-500 mb-1"><i class="fas fa-phone-alt text-lg"></i></div>
+                    <p class="text-[9px] font-bold text-gray-500">Airtime</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white aspect-square rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-cyan-500 mb-1"><i class="fas fa-comments text-lg"></i></div>
+                    <p class="text-[9px] font-bold text-gray-500">Bulk SMS</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white aspect-square rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-purple-500 mb-1"><i class="fas fa-sim-card text-lg"></i></div>
+                    <p class="text-[9px] font-bold text-gray-500">Airtime PIN</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white aspect-square rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-yellow-500 mb-1"><i class="fas fa-lightbulb text-lg"></i></div>
+                    <p class="text-[9px] font-bold text-gray-500">Electricity</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white aspect-square rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-indigo-500 mb-1"><i class="fas fa-tv text-lg"></i></div>
+                    <p class="text-[9px] font-bold text-gray-500">Cable TV</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white aspect-square rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-red-500 mb-1"><i class="fas fa-graduation-cap text-lg"></i></div>
+                    <p class="text-[9px] font-bold text-gray-500">Education</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white aspect-square rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-orange-500 mb-1"><i class="fas fa-history text-lg"></i></div>
+                    <p class="text-[9px] font-bold text-gray-500">A2Cash</p>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-bold text-gray-800 text-sm">Recent Activity</h3>
+                <span class="text-blue-700 text-[10px] font-bold uppercase">View All</span>
+            </div>
+            
+            <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-50 flex items-center justify-between mb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-gray-50 p-3 rounded-full text-blue-600"><i class="fas fa-receipt"></i></div>
+                    <div>
+                        <p class="text-xs font-bold text-gray-800">Airtel Airtime for 0806...</p>
+                        <p class="text-[9px] text-gray-400 font-medium">Just now</p>
+                    </div>
+                </div>
+                <p class="text-xs font-bold text-red-500">-₦100.00</p>
+            </div>
+        </main>
+
+        <nav class="fixed bottom-0 left-0 right-0 bg-white border-t flex justify-around p-3 pb-6 shadow-2xl z-50">
+            <div class="text-center text-blue-700"><i class="fas fa-home text-lg"></i><p class="text-[9px] font-bold">Home</p></div>
+            <div class="text-center text-gray-400"><i class="fas fa-list text-lg"></i><p class="text-[9px] font-bold">Services</p></div>
+            <div class="text-center text-gray-400 relative">
+                <div class="bg-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center -mt-8 border-4 border-gray-50 shadow-lg"><i class="fas fa-plus text-xl"></i></div>
+            </div>
+            <div class="text-center text-gray-400"><i class="fas fa-wallet text-lg"></i><p class="text-[9px] font-bold">Wallet</p></div>
+            <div class="text-center text-gray-400"><i class="fas fa-user text-lg"></i><p class="text-[9px] font-bold">Account</p></div>
         </nav>
-
-        <section class="hero-bg text-white py-20 px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">Affordable Data & Airtime</h2>
-            <p class="text-lg mb-8 opacity-90 max-w-2xl mx-auto">Purchase high-speed data, airtime top-ups, and pay utility bills at the most affordable rates in Nigeria.</p>
-            <div class="flex justify-center space-x-4">
-                <button class="bg-white text-blue-700 px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-gray-100 transition">Get Started</button>
-                <button class="border border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-700 transition">View Pricing</button>
-            </div>
-        </section>
-
-        <section class="container mx-auto py-16 px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition">
-                    <div class="text-blue-600 text-5xl mb-4">📶</div>
-                    <h3 class="text-xl font-bold mb-2">Cheap Data</h3>
-                    <p class="text-gray-500 text-sm">Instant activation for MTN, GLO, AIRTEL, and 9MOBILE SME & Gifting data.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition">
-                    <div class="text-blue-600 text-5xl mb-4">💳</div>
-                    <h3 class="text-xl font-bold mb-2">Airtime Top-up</h3>
-                    <p class="text-gray-500 text-sm">Recharge your phone instantly with our automated VTU services.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition">
-                    <div class="text-blue-600 text-5xl mb-4">💡</div>
-                    <h3 class="text-xl font-bold mb-2">Utility Bills</h3>
-                    <p class="text-gray-500 text-sm">Pay Electricity bills and Cable TV subscriptions (DSTV, GOTV & Startimes).</p>
-                </div>
-            </div>
-        </section>
-
-        <footer class="bg-gray-900 text-gray-400 py-10 text-center">
-            <div class="container mx-auto px-6">
-                <p class="mb-2 font-bold text-white">Yareema Data Hub</p>
-                <p class="text-sm">&copy; 2026. All Rights Reserved. Developed by Jawad Yakubu.</p>
-            </div>
-        </footer>
     </body>
     </html>
   `);
 });
 
-app.listen(port, () => {
-  console.log('Server is running on port ' + port);
-});
+module.exports = app;
